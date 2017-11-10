@@ -1,0 +1,20 @@
+# HTID:2495636: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:2495636:
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html
+
+RewriteBase /
+RewriteEngine on
+
+<FilesMatch "^\.(ht)|\.(ini|phps|log|sh|bak|1|old|swp)$|(\.*~)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
